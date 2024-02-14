@@ -1,0 +1,1 @@
+# wasabi-wordpress-plugins
