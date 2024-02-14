@@ -70,12 +70,19 @@ The plugin is called using:
 Starting with version 2.0 you can just use the options page to customize the look and output. However you can use the following guide to edit the paremeters manually if you wish.
  
 `related_posts($limit, $len, '$before_title', '$after_title', '$before_post', '$after_post', $show_pass_post, $show_excerpt);`
+
+Where:
  
 `$limit` - No. of related entries to display. (Defaut: 5)
+
 `$len` - Desired excerpt length (no. of words). (Default: 10)
+
 `$before/after_title` - Text to insert before/after the title section.
+
 `$before/after_post` - Text to insert before/after the post exceprt section, if displayed.
+
 `$show_pass_post` - Toggle show/hide password protected posts. (Default: False)
+
 `$show_excerpt` - Toggle show/hide excerpts. (Default: False)
  
 Example:
@@ -109,5 +116,76 @@ Download and follow the regular installation instructions. The options page is g
 `related_posts_404();`
 
 ## Grid Magazine Plugins
+
+[Grid Magazine]([url](http://www.grid-magazine.com/)) was an indie music publication that, unfortunately, went the way of the dodo. grid’s back issues are still an interesting read for anyone with an interest in music.
+
+While helping [DJ Blurb]([url](http://www.blurbomat.com/)), [Dooce]([url](http://www.dooce.com/))'s husband, to get my plugins working on his site I ended up throwing together a couple of plugins for Grid Magazine's specific needs. However, I decided to share them with the public in case someone wanted to use them.
+
+There is no proper documentation for any one of these plugins so you will have to sift through the code yourself. Luckly, everything is rather simple.
+
+### Grid Magazine Related by Category
+
+This plugin is basically a simplified version of the Related Entries plugin without the keyword matching. nstead, it lists any number of related entries that are in the same category and month as the one being viewed.
+
+### Grid Magazine This Month's Cover
+
+This plugin was designed to show the magazine cover depending on which article you are reading. For example, if you are reading an article from the September issue, it will show September's cover in the sidebar. This works both in individual entry and monthly archive views. The solution is crude and is highly specific to Grid Magazine's file naming schema, but some of you may still find it useful.
+
 ## Random Posts and Random Excerpts
+
+Both of these are pillars of simplicity. One will pull up a list of random posts and the other a list of random excerpts. Random excerpts is aimed at photobloggers who post photo thumbnails into the excerpt field.
+
+### Installation & Usage
+1. Download and extract.
+2. Upload to /wp-content/plugins/ directory.
+3. Enable the plugin.
+4. The plugins are called using:
+
+`random_posts($limit, $len, $before_title, $after_title, $before_post, $after_post, $show_pass_post, $show_excerpt);`
+
+or
+
+`random_excerpt($limit, $len, $before_title, $after_title, $before_post, $after_post, $show_pass_post, $show_excerpt);`
+
+Where:
+
+`$limit` - No. of posts to show.
+
+`$len` - Lenght of the auto-generated excerpt.
+
+`$before_title` - Text to appear before the entry title.
+
+`$after_title` - Text to appear after the entry title.
+
+`$before_post` - Text to appear before the entry excerpt.
+
+`$after_post` - Text to appear after the entry excerpt.
+
+`$show_pass_post` = Include/exclude password protected entries (Default: false).
+
+`$show_excerpt` = Show/hide excerpt (Default: false).
+
 ## Random WittyText
+
+*Note!* This page is about Witty Text, however [WP Quotes]([url](http://www.zombierobot.com/archives/wp-quotes-13-released/)) is a more sophisticated plugin that uses stores the quotes in your SQL database, has a sexy interface for adding quotes and can do more overall.
+
+This is probably the simplest WordPress plugin there is in existence. I could be wrong, of course. This simple plugin will fetch a random quote from a text file and display it pretty much anywhere on your WordPress site.
+
+#### Installation Instructions
+
+1. Download and extract.
+2. Upload witty.php to /wp-content/plugins/ directory.
+3. Edit/insert your own quotes into witty.txt and upload it to /wp-content/. Every new line in witty.txt is a new quote … check the included file to see what it should look like. FYI, if you chmod 666 witty.txt after uploading it you will be able to edit it from within WP interface later. You can put witty.txt anywhere on your site, but you will have to edit plugin code accordingly.
+4. Enable the plugin.
+5. The plugin is called using: `<?php witty(); ?>`
+
+#### Multiple Instances
+
+Although the plugin doesn't support multiple quote files, this limitation is very easy to get around although it will require you to manually edit the plugin.
+
+1. Create a copy of the plugin w/ a slightly different name. For example, witty2.txt.
+2. Change the function name to witty2 or similar, so that it makes sense.
+3. Change the name of the text file it calls, witty2.txt seems like a good idea ...
+4. Voila, you now have a second text file of witty quotes you can call using a separate funtion. Activate the plugin, populate the file with infinite wizdom and you should be all set.
+
+Adding multiple file support would be easy, but that would be overkill for this plugin in that case it would be better to use a SQL database, which was already done.
